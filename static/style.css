@@ -1,0 +1,723 @@
+@charset "UTF-8";
+/* --------------------------------------------------
+   Template by espace（https://espace.monbalcon.net/）
+   Copyright: 2020 espace.
+
+   利用規約を遵守の上、ご利用ください。
+   二次配布、販売は禁止しています。
+   --------------------------------------------------*/
+
+/* ----- ▼ リセット　ここから（基本的には触らない方が良い部分） ▼ ----- */
+html {
+  font-size: 62.5%;
+}
+
+:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, a::after, a::before, button, button::after, button::before, input, textarea, select {
+  transition: all 0.7s;
+}
+
+a img, button img {
+  transition-duration: .35s;
+}
+
+button {
+  outline: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  cursor: hand;
+}
+
+input, textarea, select {
+  font-size: 1.6rem;
+}
+
+input, textarea {
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+select {
+  appearance: button;
+}
+
+p, dl, ul, form {
+  margin: 25px 0;
+  word-break: break-all;
+}
+
+p:last-child, dl:last-child, ul:last-child, form:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 900px) {
+  p, form {
+    margin: 0 0 1.7rem;
+  }
+  p:last-child, form:last-child {
+    margin-bottom: 0;
+  }
+}
+/* ----- ▲ リセット　ここまで（基本的には触らない方が良い部分） ▲ ----- */
+
+/* ----- ▼ レイアウト　ここから ▼ ----- */
+/* 基本 */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, textarea, select {
+  font: 500 1.6rem/calc(1.6rem + 1.05rem) "Yu Gothic", Meiryo, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+  color: #4e5b6a;
+}
+
+header {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding-left: 50px;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff url("../img/layout/bg_image.jpg") 160px top;
+}
+
+header > * {
+  writing-mode: vertical-rl;
+}
+
+main, footer {
+  max-width: 1500px;
+  margin: 0 0 0 170px;
+}
+
+main > article:last-child {
+  margin-bottom: 100px;
+}
+
+main > .column:last-child article:last-child, main > .column:last-child article:nth-last-child(2) {
+  margin-bottom: 100px;
+}
+
+article {
+  position: relative;
+  max-width: 670px;
+  margin-bottom: 200px;
+  padding: 10px 0 10px 50px;
+  border-left: 2px solid #bfc8cd;
+}
+
+article > h2:first-child + * {
+  margin-top: 0;
+}
+
+article > h2:first-child + * > *:first-child {
+  margin-top: 0;
+}
+
+div.column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+div.column > * {
+  width: 43%;
+  margin-right: 30px;
+}
+
+a {
+  color: #cb6ac0;
+}
+
+a:hover {
+  background: #ece6ec;
+}
+
+/* メニュー */
+.menu {
+  position: absolute;
+  max-height: calc(100% - 250px);
+  white-space: nowrap;
+  overflow-y: auto;
+  padding: 0 0 5px 0;
+  bottom: 0;
+  left: 50px;
+  letter-spacing: 2px;
+  font-family: "Cormorant Unicase", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background: #ededed;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu ul li {
+  display: inline-block;
+  margin-bottom: -5px;
+}
+
+.menu a {
+  position: relative;
+  display: inline-block;
+  padding: 7px 0;
+  color: #4f7097;
+  background: transparent;
+}
+
+.menu a:hover {
+  filter: blur(2px);
+  color: #cb6ac0;
+}
+
+.manu-toggler {
+  display: none;
+}
+
+.fixed-menu {
+  position: fixed;
+  bottom: 0;
+  left: 123px;
+}
+
+.fixed-menu ul {
+  padding: 0;
+  list-style: none;
+}
+
+.fixed-menu ul li {
+  margin: 5px;
+}
+
+.fixed-menu a, .fixed-menu button {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid #a1b7b7 !important;
+  background: #fff !important;
+  color: #a1b7b7 !important;
+}
+
+.fixed-menu a::before, .fixed-menu button::before {
+  position: absolute;
+  width: 26px;
+  top: 10px;
+  left: calc(50% - 13px);
+  text-align: center;
+  font: 900 16px/1 "Font Awesome 5 Free";
+}
+
+.fixed-menu a:hover, .fixed-menu button:hover {
+  background: rgba(161, 183, 183, 0.3) !important;
+  box-shadow: none !important;
+}
+
+.fixed-menu .pagetop a::before, .fixed-menu .pagetop button::before {
+  content: "\f106";
+}
+
+.fixed-menu .prev a::before, .fixed-menu .prev button::before {
+  content: "\f104";
+}
+
+.fixed-menu .next::before {
+  content: none;
+}
+
+.fixed-menu .next a::before, .fixed-menu .next button::before {
+  content: "\f105";
+}
+
+.fixed-menu .toc a::before, .fixed-menu .toc button::before {
+  content: "\f0ca";
+}
+
+.fixed-menu .home a::before, .fixed-menu .home button::before {
+  content: "\f015";
+}
+
+@media only screen and (max-width: 900px) {
+  .menu {
+    position: absolute;
+    display: block;
+    writing-mode: horizontal-tb;
+    width: 230px;
+    height: 100vh;
+    max-height: 100vh;
+    left: -230px;
+    transition: all 0.7s;
+    background: #fff url("../img/layout/bg_image.jpg") 160px top;
+  }
+  .menu.open {
+    left: 0;
+  }
+  .menu ul {
+    position: absolute;
+    width: calc(100% - 30px);
+    bottom: 0;
+    padding-bottom: 144px;
+  }
+  .menu ul li {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .menu a {
+    display: block;
+    padding: 7px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  .manu-toggler {
+    display: inline-block;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.6);
+    border: 0;
+    text-align: center;
+    color: #4f7097;
+    z-index: 1;
+  }
+  .manu-toggler::after {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  .manu-toggler.open::after {
+    content: "\f053";
+  }
+  .fixed-menu {
+    left: auto;
+    right: 0;
+    bottom: 15px;
+  }
+  .fixed-menu ul {
+    display: flex;
+  }
+}
+
+/* 見出し */
+h1 {
+  height: 250px;
+  margin: 0;
+  font: 600 40px/1 "Cormorant Unicase", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+}
+
+h1 a {
+  color: #bfc8cd;
+}
+
+h1 a:hover {
+  color: #4f7097;
+  background: transparent;
+}
+
+#INDEX h1 {
+  height: auto;
+  padding: 50px 0;
+}
+
+h2, h3, h4, h5, dt {
+  font: 600 1.6rem/1 "Cormorant Unicase", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+}
+
+h2 {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  writing-mode: vertical-rl;
+  font-size: 2rem;
+  color: #bfc8cd;
+}
+
+h3 {
+  position: relative;
+  margin: 100px 0 50px;
+  padding: 2px 0 10px;
+  font-size: 1.8rem;
+  color: #4f7097;
+}
+
+h3::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, #4f7097 -100%, #bfc8cd 100%);
+}
+
+h4, h5 {
+  margin: 50px 0;
+  font-size: 1.6rem;
+}
+
+h4 {
+  padding: 7px 5px;
+  background: #ededed;
+  color: #4f7097;
+}
+
+h5 span {
+  padding: 5px;
+  background: #ededed;
+  color: #6e9192;
+}
+
+/* リスト */
+ul .description, ol .description {
+  margin-left: 10px;
+}
+
+ul .description::before, ol .description::before {
+  content: "…";
+  margin-right: 10px;
+}
+
+ul li.next {
+  list-style: none;
+}
+
+ul li.next::before {
+  content: "→";
+  margin-right: 5px;
+  font-size: 120%;
+}
+
+ul.small {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.small li {
+  display: inline;
+}
+
+ul.small li::before {
+  color: #4f7097;
+}
+
+ul.small li:not(:first-child):not(.next)::before {
+  margin: 0 5px 0 2px;
+  content: ":";
+  font-weight: 900;
+}
+
+ul.small li.next::before {
+  margin: 0 7px 0 2px;
+}
+
+dl {
+  margin: 10px 0;
+}
+
+dl dt {
+  font-family: "Cormorant Unicase", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+  font-weight: 600;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 0 15px 40px;
+  border-bottom: 1px solid #ededed;
+}
+
+dl dd:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+dl.inline {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+dl.inline dt, dl.inline dd {
+  vertical-align: top;
+  margin: 0 0 15px 0;
+  padding: 0 0 15px;
+}
+
+dl.inline dt:last-of-type, dl.inline dd:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+dl.inline dt {
+  width: 200px;
+  padding: 0 30px 10px 0;
+  padding-right: 30px;
+  border-bottom: 1px solid #ededed;
+}
+
+dl.inline dt:last-of-type {
+  border-bottom: 0;
+}
+
+dl.inline dd {
+  width: calc(100% - 200px - 30px);
+}
+
+dl.border {
+  padding: 15px 20px;
+  border: 1px solid #ededed;
+  border-radius: 0.25rem;
+}
+
+/* フォーム */
+.form-inline > *, .form-block > * {
+  margin-bottom: 5px;
+}
+
+.form-block dl dt, .form-block dl dd {
+  border-bottom: 0;
+}
+
+.form-block dl.inline dt {
+  width: 130px;
+}
+
+.form-block dl.inline dd {
+  width: calc(100% - 130px - 30px);
+}
+
+.form-block > *, .form-block dl dd > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.required::after {
+  content: "*";
+  color: #cb6ac0;
+}
+
+input, textarea, select,
+button:not(.manu-toggler), input[type="submit"], input[type="button"] {
+  border-radius: 0;
+}
+
+input::placeholder, textarea::placeholder, select::placeholder,
+button:not(.manu-toggler)::placeholder, input[type="submit"]::placeholder, input[type="button"]::placeholder {
+  color: #6e9192;
+}
+
+input:hover, input:focus, textarea:hover, textarea:focus, select:hover, select:focus,
+button:not(.manu-toggler):hover,
+button:not(.manu-toggler):focus, input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hover, input[type="button"]:focus {
+  box-shadow: 0 0 10px rgba(161, 183, 183, 0.5);
+}
+
+input, textarea, select {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid #a1b7b7;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+button:not(.manu-toggler), input[type="submit"], input[type="button"] {
+  background: #6e9192;
+  border: 1px solid #6e9192;
+  color: #fff;
+}
+
+button:not(.manu-toggler):hover, button:not(.manu-toggler):focus, input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hover, input[type="button"]:focus {
+  border: 1px solid #a1b7b7;
+  background: #a1b7b7;
+}
+
+/* 装飾 */
+b, em, strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: normal;
+  background: linear-gradient(transparent 50%, #ece6ec 50%);
+}
+
+strong {
+  background: #ece6ec;
+}
+
+hr {
+  height: 40px;
+  margin: 80px 0;
+  border: 0;
+  background: url(../img/layout/hr.png) no-repeat center/contain;
+  background-size: contain;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-small {
+  font-size: smaller;
+}
+
+/* スマホ設定 */
+@media only screen and (max-width: 1200px) {
+  div.column dl.inline {
+    display: block;
+  }
+  div.column dl.inline dt, div.column dl.inline dd {
+    width: auto;
+  }
+  div.column dl.inline dd {
+    padding-left: 30px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body, button, input, textarea {
+    font-size: 1.6rem;
+    line-height: calc(1.6rem + 1.05rem);
+  }
+  header {
+    padding-left: 30px;
+    z-index: 1;
+  }
+  header::before {
+    width: 30px;
+  }
+  main, footer {
+    margin: 0 15px 0 64px;
+  }
+  main.no_header {
+    margin: 0 15px;
+  }
+  main.no_header + footer {
+    margin: 0 15px;
+  }
+  div.column {
+    display: block;
+  }
+  div.column > * {
+    width: auto;
+    margin-right: 0;
+  }
+  article {
+    padding: 0 0 0 15px;
+  }
+  /* 見出し */
+  h1 {
+    font-size: 34px;
+  }
+  h2 {
+    position: relative;
+    writing-mode: revert;
+    margin-bottom: 20px;
+  }
+  h2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 9px;
+    left: -13px;
+    border-style: solid;
+    border-width: 5px 0 5px 7px;
+    border-color: transparent transparent transparent #bfc8cd;
+  }
+  /* リスト */
+  ul .description, ol .description {
+    display: block;
+    margin-left: 10px;
+  }
+  ul .description::before, ol .description::before {
+    content: "└";
+    margin-right: 10px;
+  }
+  dl.border dt, dl.border dd, dl.inline dt, dl.inline dd {
+    display: block;
+  }
+  dl.border dt, dl.inline dt {
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  dl.border dd, dl.inline dd {
+    width: calc(100% - 40px);
+    padding-left: 40px;
+  }
+  /* フォーム */
+  .form-inline input {
+    width: 45%;
+  }
+  .form-block dl.inline dt {
+    width: 100%;
+  }
+  .form-block dl.inline dd {
+    width: calc(100% - 40px);
+    padding-left: 40px;
+  }
+  .form-block > *, .form-block dl dd > * {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+}
+/* ----- ▲ レイアウト　ここまで ▲ ----- */

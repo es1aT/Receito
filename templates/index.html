@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>　Receito</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav id="mainMenu" data-toggler="mainMenuToggler" class="menu">
+            <ul>
+                <li><a href="#">レシート選択　</a></li>
+                <li><a href="#">経理データ　</a></li>
+                <li><a href="#">表のダウンロード　</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button id="mainMenuToggler" class="menu-toggler" data-open="false"></button>
+    <!-- メイン -->
+    <main>
+        <h1 style="display: flex; justify-content: flex-start; align-items: center; height: 100px;">
+            <span style="font-size: 1.5em;">Receito</span>　~レシート自動処理ツール~
+        </h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <!-- 経費 -->
+        <h3><span>レシート選択</span></h3>
+            <div>
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" accept='image/*'>
+                    <input type="submit" value="表に入力する">
+                </form>
+            </div>
+            <h3><span>経理データ</span></h3>
+            <table border='1'>
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>商品名</th>
+                        <th>金額</th>
+                        <th>個数</th>
+                    </tr>
+                </thead>
+                {% for product in ls %}
+                    <tr>
+                        <th>{{date}}</th>
+                        <th>{{product[0]}}</th>
+                        <th>{{product[2]}}</th>
+                        <th>{{product[1]}}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        </article>
+        <!-- script -->
+        <script src="js/general.js"></script>
+</body>
+</html>
