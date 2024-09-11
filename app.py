@@ -9,7 +9,7 @@ from io import StringIO
 # Tesseractのパスを指定
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\taich\OneDrive\デスクトップ\my_website\Tesseract-OCR\tesseract.exe'
 # APIキーの設定
-genai.configure(api_key="AIzaSyCYkp4ch8Ey9d8M-f38nNNv3oD-klG9Oa8")
+genai.configure(api_key="APIキー（仮）")
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'tiff'}
