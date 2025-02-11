@@ -7,7 +7,7 @@ import csv
 import pandas as pd
 from io import StringIO
 # Tesseractのパスを指定
-pytesseract.pytesseract.tesseract_cmd = r'C:\Users\taich\OneDrive\デスクトップ\my_website\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'tesseract.exeがあるパスの指定'
 # APIキーの設定
 genai.configure(api_key="APIキー（仮）")
 app = Flask(__name__)
